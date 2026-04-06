@@ -1,0 +1,65 @@
+# This .gitignore file should be placed at the root of your Unity project.
+/[Aa]ssets/[Ee]xternal[Dd]ependencies.meta
+/[Aa]ssets/[Ee]xternal[Dd]ependencies/
+
+# Temp/ and Obj/ folders
+/[Tt]emp/
+/[Oo]bj/
+
+# Library/ and Logs/ folders
+/[Ll]ibrary/
+/[Ll]ogs/
+
+# User-specific settings and state
+/[Uu]ser[Ss]ettings/
+/[Pp]roject[Ss]ettings/ProjectVersion.txt
+/[Pp]roject[Ss]ettings/EditorBuildSettings.asset
+/[Pp]roject[Ss]ettings/EditorSettings.asset
+/[Pp]roject[Ss]ettings/GraphicsSettings.asset
+/[Pp]roject[Ss]ettings/InputManager.asset
+/[Pp]roject[Ss]ettings/ProjectSettings.asset
+/[Pp]roject[Ss]ettings/QualitySettings.asset
+/[Pp]roject[Ss]ettings/TagManager.asset
+/[Pp]roject[Ss]ettings/TimeManager.asset
+/[Pp]roject[Ss]ettings/UnityConnectSettings.asset
+/[Pp]roject[Ss]ettings/VCSSettings.asset
+
+# Visual Studio / Rider generated files
+*.csproj
+*.unityproj
+*.sln
+*.suo
+*.tmp
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.opendb
+*.VC.db
+
+# Unity3D generated meta files
+*.pidb.meta
+*.pdb.meta
+*.mdb.meta
+
+# Unity3D generated file types
+*.unitypackage
+*.unitypackage.meta
+
+# Crashlytics generated file
+crashlytics-build.properties
+
+# Packed Assets
+/[Aa]ssets/[Aa]ddressable[Aa]ssets[Dd]ata/*/[Ll]ibrary/
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Icon?
+ehthumbs.db
+Thumbs.db
