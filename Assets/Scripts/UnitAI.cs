@@ -55,17 +55,21 @@ public class UnitAI : MonoBehaviour
         // 2. 적 기지를 향해 이동
         if (targetBase != null)
         {
-            Vector3 direction = (targetBase.position - transform.position).normalized;
+            Vector3 targetPos = new Vector3(targetBase.position.x, transform.position.y, targetBase.position.z);
+            Vector3 direction = (targetPos - transform.position).normalized;
+            
             transform.position += direction * moveSpeed * Time.deltaTime;
-            transform.forward = direction; // 전진 방향 바라보기
+            if (direction != Vector3.zero)
+                transform.forward = direction; // 전진 방향 바라보기
         }
     }
 
     private void HandleCombatState()
     {
         // 적이 사라졌거나 죽었을 경우 이동 상태로 복귀
-        if (currentEnemy == null)
+        if (currentEnemy == null || !currentEnemy.gameObject.activeInHierarchy)
         {
+            currentEnemy = null;
             currentState = UnitState.Move;
             return;
         }
@@ -75,7 +79,8 @@ public class UnitAI : MonoBehaviour
         // 사거리 밖이면 적에게 접근
         if (distanceToEnemy > attackRange)
         {
-            Vector3 direction = (currentEnemy.position - transform.position).normalized;
+            Vector3 targetPos = new Vector3(currentEnemy.position.x, transform.position.y, currentEnemy.position.z);
+            Vector3 direction = (targetPos - transform.position).normalized;
             transform.position += direction * moveSpeed * Time.deltaTime;
             transform.forward = direction;
         }
@@ -83,13 +88,6 @@ public class UnitAI : MonoBehaviour
         {
             // 사거리 안이면 공격 루틴
             Attack();
-        }
-
-        // 전투 중에도 거리가 너무 멀어지면 타겟 상실
-        if (distanceToEnemy > detectionRange)
-        {
-            currentEnemy = null;
-            currentState = UnitState.Move;
         }
     }
 
